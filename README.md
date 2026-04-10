@@ -1,61 +1,79 @@
 # GitHub Clone
 
-A full-stack GitHub clone built with React, Vite, Express, MongoDB, Socket.IO, and AWS S3. The project includes authentication, user profiles, repository management, starring, following, issues, pull requests, and a custom CLI-inspired workflow for init, add, commit, push, pull, and revert operations.
-
-## GitHub Repo Description
-
-Use this in the GitHub repository description field:
-
-`Full-stack GitHub clone with React, Express, MongoDB, Socket.IO, and AWS S3 for repositories, profiles, issues, pull requests, starring, and custom Git-style commands.`
-
-Suggested topics:
-
-`react` `vite` `express` `mongodb` `socket-io` `aws-s3` `github-clone` `full-stack`
+GitHub Clone is a full-stack web application inspired by core GitHub workflows. It allows users to create accounts, manage repositories, follow other users, open issues, view pull requests, and interact with project data through a dashboard interface. The backend also includes a lightweight Git-style CLI for initializing repositories, staging files, committing changes, and syncing commit snapshots with AWS S3.
 
 ## Features
 
-- User signup and login with JWT-based authentication
-- User profiles with followers and following
+- User authentication with signup and login
+- User profile pages with follower and following support
 - Create, view, update, and delete repositories
-- Public/private repository visibility toggle
+- Public and private repository visibility
 - Star and unstar repositories
 - Issue creation, filtering, updating, and deletion
-- Pull request and comment APIs
-- Dashboard with repository discovery and trending suggestions
-- Contribution heatmap view
-- Custom CLI-style repository commands backed by local storage and AWS S3
+- Pull request and comment endpoints
+- Dashboard with personal repositories and discovery sections
+- Contribution heatmap view on user profiles
+- Custom Git-style commands for init, add, commit, push, pull, and revert
 
 ## Tech Stack
 
-- Frontend: React 19, Vite, React Router, Axios, Primer React
-- Backend: Node.js, Express, Mongoose, MongoDB, Socket.IO, JWT, bcryptjs
-- Storage: MongoDB for app data, AWS S3 for CLI push/pull snapshots
+### Frontend
+
+- React
+- Vite
+- React Router
+- Axios
+- Primer React
+
+### Backend
+
+- Node.js
+- Express
+- Mongoose
+- MongoDB
+- Socket.IO
+- JWT
+- bcryptjs
+
+### Cloud and Storage
+
+- MongoDB for application data
+- AWS S3 for commit snapshot storage used by the CLI workflow
 
 ## Project Structure
 
 ```text
 Github-Clone/
-|-- frontend/   # React + Vite client
-`-- backend/    # Express API + custom git-style CLI commands
+|-- frontend/
+`-- backend/
 ```
 
-## Local Setup
+## Getting Started
 
-### 1. Install dependencies
+### 1. Clone the project
+
+```bash
+git clone https://github.com/your-username/your-repo-name.git
+cd your-repo-name
+```
+
+### 2. Install backend dependencies
 
 ```bash
 cd backend
 npm install
+```
 
+### 3. Install frontend dependencies
+
+```bash
 cd ../frontend
 npm install
 ```
 
-### 2. Configure backend environment
+### 4. Configure environment variables
 
-Create `backend/.env` from `backend/.env.example`.
-
-Required variables:
+Create a `backend/.env` file using `backend/.env.example` as reference.
 
 ```env
 PORT=3002
@@ -67,72 +85,85 @@ AWS_SECRET_ACCESS_KEY=your_aws_secret_access_key
 S3_BUCKET=your_s3_bucket_name
 ```
 
-Notes:
+## Running the Project
 
-- The frontend currently calls the backend at `http://localhost:3002`, so keep the backend running on port `3002` unless you also update the frontend API URLs.
-- MongoDB must be running or accessible through the provided connection string.
-- AWS credentials and `S3_BUCKET` are only required for the custom CLI push/pull workflow.
-
-### 3. Start the backend
+### Start the backend server
 
 ```bash
 cd backend
 npm start
 ```
 
-### 4. Start the frontend
+### Start the frontend
 
 ```bash
 cd frontend
 npm run dev
 ```
 
-## Custom CLI Commands
+The frontend is configured to communicate with the backend at `http://localhost:3002`.
 
-The backend also exposes a lightweight Git-inspired CLI:
+## CLI Commands
+
+The backend includes a small Git-inspired command system:
 
 ```bash
 cd backend
 node index.js init
 node index.js add path/to/file
-node index.js commit "your message"
+node index.js commit "commit message"
 node index.js push
 node index.js pull
 node index.js revert <commitID>
 ```
 
-These commands create local data inside `.apnaGit/` and use AWS S3 for push/pull.
+These commands store local repository data inside `.apnaGit/` and use AWS S3 for push and pull operations.
 
-## Main API Areas
+## API Overview
 
-- Auth and users: signup, login, profile, followers, following
-- Repositories: create, list, view, update, delete, visibility, stars
-- Issues: create, list, update, delete
-- Pull requests: create, list, update, delete
-- Comments: create, list, update, delete
+### User Routes
 
-## Before Uploading To GitHub
+- `POST /signup`
+- `POST /login`
+- `GET /userProfile/:id`
+- `PUT /updateProfile/:id`
+- `DELETE /deleteProfile/:id`
+- `POST /follow/:userId`
+- `POST /unfollow/:userId`
+- `GET /followers/:userId`
+- `GET /following/:userId`
 
-- Do not commit `node_modules/`
-- Do not commit `.env`
-- Do not commit `.apnaGit/` local snapshot data
-- Keep AWS keys and database credentials only in local env files
+### Repository Routes
 
-## Upload Steps
+- `POST /repo/create`
+- `GET /repo/all`
+- `GET /repo/:id`
+- `GET /repo/user/:userID`
+- `PUT /repo/update/:id`
+- `DELETE /repo/delete/:id`
+- `PATCH /repo/toggle/:id`
+- `POST /repo/star/:repoId`
+- `POST /repo/unstar/:repoId`
 
-If you have not initialized Git yet:
+### Issue Routes
 
-```bash
-git init
-git add .
-git commit -m "Initial commit"
-git branch -M main
-git remote add origin https://github.com/<your-username>/<your-repo-name>.git
-git push -u origin main
-```
+- `POST /issue/create`
+- `GET /issue/all`
+- `GET /issue/:id`
+- `PUT /issue/update/:id`
+- `DELETE /issue/delete/:id`
 
-## Current Notes
+### Pull Request Routes
 
-- There is no root `package.json`; frontend and backend are managed separately.
-- The frontend entry renders routed pages from `frontend/src/Routes.jsx`.
-- Backend startup and CLI commands are defined in `backend/index.js`.
+- `POST /pr/create/:userId`
+- `GET /prs`
+- `GET /pr/:id`
+- `PUT /pr/update/:id`
+- `DELETE /pr/delete/:id`
+
+## Notes
+
+- Frontend and backend are managed separately with their own `package.json` files.
+- AWS credentials are only required for the custom CLI push and pull workflow.
+- Environment files and `node_modules` should not be committed to GitHub.
+
