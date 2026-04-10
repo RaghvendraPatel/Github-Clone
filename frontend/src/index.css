@@ -1,0 +1,94 @@
+:root {
+  /* GitHub Dark Theme Colors */
+  --color-canvas-default: #0d1117;
+  --color-canvas-overlay: #010409;
+  --color-canvas-inset: #010409;
+  --color-border-default: #30363d;
+  --color-border-muted: #21262d;
+  --color-fg-default: #c9d1d9;
+  --color-fg-muted: #8b949e;
+  --color-fg-subtle: #6e7681;
+  --color-accent-fg: #58a6ff;
+  --color-accent-bg: #1f6feb;
+
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: dark;
+  color: var(--color-fg-default);
+  background-color: var(--color-canvas-default);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  background-color: var(--color-canvas-default);
+  color: var(--color-fg-default);
+}
+
+a {
+  color: var(--color-accent-fg);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: #79c0ff;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  color: var(--color-fg-default);
+}
+
+button {
+  border-radius: 6px;
+  border: 1px solid var(--color-border-default);
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: transparent;
+  color: var(--color-fg-default);
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+button:hover {
+  background-color: var(--color-border-default);
+  border-color: var(--color-border-default);
+}
+
+button:active {
+  background-color: var(--color-border-muted);
+}
+
+input, textarea, select {
+  background-color: var(--color-canvas-inset);
+  border: 1px solid var(--color-border-default);
+  color: var(--color-fg-default);
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-family: inherit;
+  font-size: 14px;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: var(--color-accent-bg);
+  box-shadow: 0 0 0 3px rgba(88, 166, 255, 0.1);
+}

@@ -1,0 +1,230 @@
+.profile-page-wrapper {
+  display: flex;
+  min-height: calc(100vh - 64px);
+  color: #c9d1d9;
+  width: 100%;
+  background: #0d1117;
+}
+
+.user-profile-section {
+  width: 280px;
+  display: flex;
+  flex-direction: column;
+  padding: 32px 24px;
+  border-right: 1px solid #30363d;
+  background: #0d1117;
+}
+
+.user-repo-section {
+  flex: 1;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  background: #0d1117;
+}
+
+.user-name {
+  margin: 0 0 24px 0;
+}
+
+.user-name h2 {
+  margin: 0 0 8px 0;
+  font-size: 20px;
+  color: #c9d1d9;
+  font-weight: 600;
+}
+
+.user-name p {
+  margin: 0;
+  color: #8b949e;
+  font-size: 13px;
+}
+
+.profile-image {
+  margin: 0 0 24px 0;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1f6feb 0%, #388bfd 100%);
+  border: 2px solid #58a6ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  font-weight: bold;
+  color: white;
+}
+
+.profile-initial {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+}
+
+.follow-btn {
+  background-color: transparent;
+  border: 1px solid #30363d;
+  width: 100%;
+  height: 36px;
+  border-radius: 6px;
+  color: #c9d1d9;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 14px;
+}
+
+.follow-btn:hover {
+  background: #21262d;
+  border-color: #58a6ff;
+  color: #58a6ff;
+}
+
+.follow-btn.active {
+  background: #1f6feb;
+  border-color: #1f6feb;
+  color: white;
+}
+
+.follower {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  gap: 12px;
+  margin: 16px 0 0 0;
+  padding: 16px 0 0 0;
+  border-top: 1px solid #30363d;
+}
+
+.follower-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+.stat-count {
+  font-weight: 600;
+  font-size: 16px;
+  color: #c9d1d9;
+}
+
+.stat-label {
+  font-size: 12px;
+  color: #8b949e;
+  text-transform: capitalize;
+}
+
+.logout-btn {
+  background: transparent;
+  border: 1px solid #f85149;
+  color: #f85149;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.logout-btn:hover {
+  background: #f85149;
+  color: white;
+}
+
+.repo-card-wrapper {
+  margin: 0;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 24px;
+}
+
+.repo {
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  width: 300px;
+  min-height: 160px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: #161b22;
+  transition: all 0.2s;
+}
+
+.repo:hover {
+  border-color: #58a6ff;
+  background: #0d1117;
+}
+
+.repo-name {
+  cursor: pointer;
+  color: #58a6ff;
+  font-size: 15px;
+  font-weight: 600;
+  margin: 0 0 8px 0;
+}
+
+.repo-name:hover {
+  color: #79c0ff;
+  text-decoration: underline;
+}
+
+.description {
+  color: #8b949e;
+  font-size: 13px;
+  margin: 0 0 12px 0;
+  line-height: 1.5;
+}
+
+.repo-meta-footer {
+  display: flex;
+  gap: 12px;
+  font-size: 12px;
+  color: #6e7681;
+}
+
+@media screen and (max-width: 900px) {
+  .profile-page-wrapper {
+    flex-direction: column;
+  }
+
+  .user-profile-section {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #30363d;
+    padding: 24px;
+  }
+
+  .repo {
+    width: calc(50% - 8px);
+  }
+}
+
+@media screen and (max-width: 570px) {
+  .user-profile-section {
+    width: 100%;
+    padding: 16px;
+  }
+
+  .profile-page-wrapper {
+    display: block;
+  }
+
+  .repo-card-wrapper {
+    padding: 16px;
+    gap: 12px;
+  }
+
+  .repo {
+    width: 100%;
+  }
+}
+
+#logout:hover {
+  border: 1px solid #58a6ff;
+  color: #58a6ff;
+}

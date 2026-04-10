@@ -1,0 +1,248 @@
+.issue-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 16px;
+  background: #0d1117;
+  min-height: calc(100vh - 64px);
+}
+
+.issue-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #30363d;
+}
+
+.issue-header h2 {
+  font-size: 20px;
+  margin: 0;
+  color: #c9d1d9;
+  font-weight: 600;
+}
+
+.btn-create-issue {
+  padding: 8px 16px;
+  background: #1f6feb;
+  color: white;
+  border: 1px solid #1f6feb;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.btn-create-issue:hover {
+  background: #388bfd;
+  border-color: #388bfd;
+}
+
+.issue-form {
+  background: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+.issue-form .form-group {
+  margin-bottom: 16px;
+}
+
+.issue-form .form-group label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 8px;
+  color: #c9d1d9;
+  font-size: 14px;
+}
+
+.issue-form .form-input,
+.issue-form .form-textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: inherit;
+  background: #0d1117;
+  color: #c9d1d9;
+}
+
+.issue-form .form-input::placeholder,
+.issue-form .form-textarea::placeholder {
+  color: #6e7681;
+}
+
+.issue-form .form-input:focus,
+.issue-form .form-textarea:focus {
+  outline: none;
+  border-color: #388bfd;
+  box-shadow: 0 0 0 3px rgba(56, 139, 253, 0.1);
+  background: #010409;
+}
+
+.issue-form .form-textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.issue-form .btn-submit {
+  padding: 8px 16px;
+  background: #1f6feb;
+  color: white;
+  border: 1px solid #1f6feb;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.issue-form .btn-submit:hover {
+  background: #388bfd;
+  border-color: #388bfd;
+}
+
+.issue-filters {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.filter-btn {
+  padding: 8px 12px;
+  background: transparent;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  color: #8b949e;
+  transition: all 0.2s;
+  font-weight: 500;
+}
+
+.filter-btn:hover {
+  background: #21262d;
+  border-color: #58a6ff;
+  color: #58a6ff;
+}
+
+.filter-btn.active {
+  background: #1f6feb;
+  color: white;
+  border-color: #1f6feb;
+}
+
+.no-issues {
+  text-align: center;
+  color: #8b949e;
+  padding: 40px 20px;
+  font-size: 15px;
+}
+
+.issues-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 16px;
+}
+
+.issue-card {
+  background: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  padding: 16px;
+  transition: all 0.2s;
+}
+
+.issue-card:hover {
+  border-color: #58a6ff;
+  background: #0d1117;
+}
+
+.issue-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.issue-card-header h3 {
+  font-size: 15px;
+  margin: 0;
+  color: #58a6ff;
+  flex: 1;
+  font-weight: 600;
+}
+
+.status-badge {
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 600;
+  white-space: nowrap;
+  flex-shrink: 0;
+  border: 1px solid;
+}
+
+.status-badge.open {
+  background: transparent;
+  color: #3fb950;
+  border-color: #3fb950;
+}
+
+.status-badge.closed {
+  background: transparent;
+  color: #f85149;
+  border-color: #f85149;
+}
+
+.issue-card-description {
+  color: #8b949e;
+  margin: 0 0 12px 0;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.issue-card-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.status-select {
+  flex: 1;
+  padding: 6px 8px;
+  border: 1px solid #30363d;
+  border-radius: 4px;
+  font-size: 12px;
+  cursor: pointer;
+  background: #0d1117;
+  color: #c9d1d9;
+}
+
+.status-select:focus {
+  outline: none;
+  border-color: #388bfd;
+  background: #010409;
+}
+
+.btn-delete {
+  padding: 6px 12px;
+  background: transparent;
+  color: #f85149;
+  border: 1px solid #f85149;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: all 0.2s;
+  font-weight: 500;
+}
+
+.btn-delete:hover {
+  background: #f85149;
+  color: white;
+  border-color: #f85149;
+}
